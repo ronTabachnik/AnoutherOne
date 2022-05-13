@@ -35,7 +35,7 @@
 <body class="text-center">
 
   <main class="form-signin">
-    <form action="index.html">
+    <form action="index.php">
       <img src="styles/images/ProductLogo.png" alt="mdo" width="100" height="100" class="rounded  center">
       <h1 class="h3 mb-3 fw-normal">Contact us</h1>
 
@@ -56,7 +56,7 @@
       <br>
       <button class="w-100 btn btn-lg btn-primary" type="submit">Send message</button>
       <br>
-      <a href="index.html">Return to homepage</a>
+      <a href="index.php">Return to homepage</a>
     </form>
   </main>
 

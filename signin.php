@@ -1,4 +1,32 @@
-<!doctype html>
+<?
+include('session.php');
+include('db.php');
+include('utils.php');
+
+$errors = array();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  if (empty($_POST['email'])) array_push($errors, 'email is empty');
+  if (empty($_POST['password'])) array_push($errors, 'password is empty');
+
+  if (count($errors) == 0) {
+    $stmt = $db->prepare("select * from users where email = :email and password = :password");
+    $stmt->bindParam(':email', $_POST['email']);
+    $tmp = pass_hash($_POST['password']);
+    $stmt->bindParam(':password', $tmp);
+    $stmt->execute();
+    $user = $stmt->fetch();
+    if (empty($user)) {
+      array_push($errors, 'wrong email or password');
+    } else {
+      $_SESSION['user'] = $user;
+      header("Location: /index.php");
+      exit();
+    }
+  }
+}
+
+?><!doctype html>
 <html lang="en">
 
 <head>
@@ -35,16 +63,16 @@
 <body class="text-center">
 
   <main class="form-signin">
-    <form>
+    <form method="POST">
       <img src="styles/images/ProductLogo.png" alt="mdo" width="100" height="100" class="rounded  center">
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
         <label for="floatingInput">Email address</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
         <label for="floatingPassword">Password</label>
       </div>
 
@@ -54,12 +82,15 @@
         </label>
         <br>
         <label>
-          <a href="signup.html">need to signup?</a>
+          <a href="signup.php">need to signup?</a>
           <br>
-          <a href="index.html">back to homepage</a>
+          <a href="index.php">back to homepage</a>
         </label>
         <br>
       </div>
+
+      <div class="error"><?= join('<br>', $errors) ?></div>
+
       <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
     </form>

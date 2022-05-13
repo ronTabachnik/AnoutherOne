@@ -1,4 +1,8 @@
-<!doctype html>
+<?
+include('session.php');
+include('db.php');
+
+?><!doctype html>
 <html lang="en">
 
 <head>
@@ -33,44 +37,7 @@
 </head>
 
 <body>
-  <header>
-    <!-- Fixed navbar -->
-
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <div class="container-fluid">
-        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="styles/images/ProductLogo.png" alt="mdo" width="32" height="32" class="rounded bg-light center" style="light">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="recycling.html">Recycling</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="market.html">Market</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="contact.html">Contact us</a>
-            </li>
-          </ul>
-          <div class="col-md-3 text-end">
-
-            <a href="signin.html"><button type="button" href="signin.html" class="btn btn-outline-primary me-2">Sign-in</button></a>
-            <a href="signup.html"><button type="button" href="signup.html" class="btn btn-primary">Sign-up</button></a>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
+<? include('nav_header.php'); ?>
   <br>
   <br>
 
@@ -81,7 +48,7 @@
         <h1 class="display-4 fst-italic">About our goal</h1>
         <p class="lead my-3">Outdated technology doesn’t have to end up in a landfill. So when it’s time to upgrade your laptops and printers or replace your old tv
           Visit our website to find the right place to recycle it responsibly...</p>
-        <p class="lead mb-0"><a href="about.html" class="text-black fw-bold">Read more...</a></p>
+        <p class="lead mb-0"><a href="about.php" class="text-black fw-bold">Read more...</a></p>
       </div>
     </div>
 
@@ -92,7 +59,7 @@
             <strong class="d-inline-block mb-2 text-primary">Recycling company</strong>
             <h3 class="mb-0">The goal</h3>
             <p class="card-text mb-auto">Electronic waste is the waste generated from surplus, broken, and obsolete electronic devices that have no further ability to be reused or repurposed..</p>
-            <a href="recycling.html" class="stretched-link">Read more...</a>
+            <a href="recycling.php" class="stretched-link">Read more...</a>
           </div>
           <div class="col-auto d-none d-lg-block">
             <img width="200" height="250 "src="https://cdn.pixabay.com/photo/2021/11/27/11/55/business-6827797_1280.png" alt="">
@@ -105,7 +72,7 @@
             <strong class="d-inline-block mb-2 text-success">Electronic waste disposal</strong>
             <h3 class="mb-0">What is E-waste</h3>
             <p class="mb-auto">When the word “recycling” gets mentioned, people often think of soda cans, water bottles, cardboard boxes, or newspapers – common household items..</p>
-            <a href="recycling.html" class="stretched-link">Read more..</a>
+            <a href="recycling.php" class="stretched-link">Read more..</a>
           </div>
           <div class="col-auto d-none d-lg-block">
           <img width="200" height="250" src="styles/images/Ewaste.png" alt="">
@@ -192,11 +159,11 @@
         <div class="col-2">
           <h5>Section</h5>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 text-muted">Home</a></li>
-            <li class="nav-item mb-2"><a href="about.html" class="nav-link p-0 text-muted">About us</a></li>
-            <li class="nav-item mb-2"><a href="recycling.html" class="nav-link p-0 text-muted">Recycling</a></li>
-            <li class="nav-item mb-2"><a href="market.html" class="nav-link p-0 text-muted">Market</a></li>
-            <li class="nav-item mb-2"><a href="contact.html" class="nav-link p-0 text-muted">Contact us</a></li>
+            <li class="nav-item mb-2"><a href="index.php" class="nav-link p-0 text-muted">Home</a></li>
+            <li class="nav-item mb-2"><a href="about.php" class="nav-link p-0 text-muted">About us</a></li>
+            <li class="nav-item mb-2"><a href="recycling.php" class="nav-link p-0 text-muted">Recycling</a></li>
+            <li class="nav-item mb-2"><a href="market.php" class="nav-link p-0 text-muted">Market</a></li>
+            <li class="nav-item mb-2"><a href="contact.php" class="nav-link p-0 text-muted">Contact us</a></li>
           </ul>
         </div>
 

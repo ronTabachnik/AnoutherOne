@@ -33,44 +33,7 @@
 </head>
 
 <body>
-
-  <header>
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <div class="container-fluid">
-        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="styles/images/ProductLogo.png" alt="mdo" width="32" height="32" class="rounded bg-light center" style="light">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="about.html">About us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="recycling.html">Recycling</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="market.html">Market</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="contact.html">Contact us</a>
-            </li>
-          </ul>
-          <div class="col-md-3 text-end">
-
-            <a href="signin.html"><button type="button" href="signin.html" class="btn btn-outline-primary me-2">Sign-in</button></a>
-            <a href="signup.html"><button type="button" href="signup.html" class="btn btn-primary">Sign-up</button></a>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
+<? include('nav_header.php'); ?>
 
   <main>
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
@@ -134,11 +97,11 @@
         <div class="col-2">
           <h5>Section</h5>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 text-muted">Home</a></li>
-            <li class="nav-item mb-2"><a href="about.html" class="nav-link p-0 text-muted">About us</a></li>
-            <li class="nav-item mb-2"><a href="recycling.html" class="nav-link p-0 text-muted">Recycling</a></li>
-            <li class="nav-item mb-2"><a href="market.html" class="nav-link p-0 text-muted">Market</a></li>
-            <li class="nav-item mb-2"><a href="contact.html" class="nav-link p-0 text-muted">Contact us</a></li>
+            <li class="nav-item mb-2"><a href="index.php" class="nav-link p-0 text-muted">Home</a></li>
+            <li class="nav-item mb-2"><a href="about.php" class="nav-link p-0 text-muted">About us</a></li>
+            <li class="nav-item mb-2"><a href="recycling.php" class="nav-link p-0 text-muted">Recycling</a></li>
+            <li class="nav-item mb-2"><a href="market.php" class="nav-link p-0 text-muted">Market</a></li>
+            <li class="nav-item mb-2"><a href="contact.php" class="nav-link p-0 text-muted">Contact us</a></li>
           </ul>
         </div>
         <div class="col-4 offset-1">
