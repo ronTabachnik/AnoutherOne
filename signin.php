@@ -76,6 +76,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <label for="floatingPassword">Password</label>
       </div>
 
+      <div class="checkbox mb-3">
+        <label>
+          <a href="signup.php">need to signup?</a>
+          <br>
+          <a href="index.php">back to homepage</a>
+        </label>
+      </div>
+
       <div class="error"><?= join('<br>', $errors) ?></div>
 
       <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>

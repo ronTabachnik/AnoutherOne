@@ -56,7 +56,9 @@
       <br>
       <button class="w-100 btn btn-lg btn-primary" type="submit">Send message</button>
       <br>
-      <a href="index.php">Return to homepage</a>
+      <a href="index.php">back to homepage</a>
+
+      <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
     </form>
   </main>
 
