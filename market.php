@@ -2,7 +2,15 @@
 include('session.php');
 include('db.php');
 
-$stmt = $db->prepare("select * from announcements order by name");
+$filter = false;
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['filter'])) {
+  $stmt = $db->prepare("select * from announcements where name like :filter or description like :filter order by name");
+  $shit = '%'.$_POST['filter'].'%';
+  $stmt->bindParam(':filter', $shit);
+} else {
+  $stmt = $db->prepare("select * from announcements order by name");
+}
 $stmt->execute();
 $items = $stmt->fetchAll();
 
@@ -58,6 +66,10 @@ $items = $stmt->fetchAll();
       </div>
     </section>
 
+    <form method="POST">
+      Search: <input type="text" name="filter"> <button type="submit">Search</button>
+    </form>
+
     <div class="album py-5 bg-light">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -65,13 +77,15 @@ $items = $stmt->fetchAll();
 <? foreach ($items as $item) { ?>
           <div class="col">
             <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="<?= $item['image']?>">
+              <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title><?= $item['name'] ?></title>
                 <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-              </svg>
+              </svg> -->
 
               <div class="card-body">
                 <p class="card-text"><b><?= $item['name'] ?></b></p>
+                
                 <p class="card-text">contact info: <?= $item['contact'] ?></p>
                 <p class="card-text"><?= $item['description'] ?></p>
               </div>
