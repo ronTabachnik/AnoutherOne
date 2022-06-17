@@ -56,7 +56,7 @@ $items = $stmt->fetchAll();
     <section class="py-5 text-center container">
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light">Market shop</h1>
+          <h1 class="fw-light">Market</h1>
           <!-- <p class="lead text-muted">soon we going to have here a great market of 2nd hand electronics items, but until then you should wait while we're finishing to set up the server).</p>
           <p>
             <a href="#" class="btn btn-primary my-2">Main call to action</a>
@@ -118,8 +118,8 @@ $items = $stmt->fetchAll();
       </div>
 
       <div class="d-flex justify-content-between py-4 my-4 border-top">
-        <p>&copy; 2021 Company, Inc. All rights reserved.</p>
-        <ul class="list-unstyled d-flex">
+        <p>&copy; 2022 K212 group (KTU), Inc. All rights reserved</p>
+        <!-- <ul class="list-unstyled d-flex">
           <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
                 <use xlink:href="#twitter" />
               </svg></a></li>
@@ -129,7 +129,7 @@ $items = $stmt->fetchAll();
           <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
                 <use xlink:href="#facebook" />
               </svg></a></li>
-        </ul>
+        </ul>-->
       </div>
     </footer>
 

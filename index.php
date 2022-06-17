@@ -133,15 +133,15 @@ include('db.php');
         <div class="position-sticky" style="top: 2rem;">
           <div class="p-4 mb-3 bg-light rounded">
             <h4 class="fst-italic">Some random fact</h4>
-            <p class="mb-0">This UI was designed by the best Farid.</p>
+            <p class="mb-0">E-waste represents 2% of America's trash in landfills, but it equals 70% of overall toxic waste.</p>
           </div>
 
           <div class="p-4">
             <h4 class="fst-italic">Reach us</h4>
             <ol class="list-unstyled">
-              <li><a href="#">GitHub</a></li>
-              <li><a href="#">KTU</a></li>
-              <li><a href="#">Facebook</a></li>
+              <li><a href="https://github.com/ronTabachnik/AnoutherOne">GitHub</a></li>
+              <!-- <li><a href="#">KTU</a></li> -->
+              <!-- <li><a href="#">Facebook</a></li> -->
             </ol>
           </div>
         </div>
@@ -162,12 +162,13 @@ include('db.php');
             <li class="nav-item mb-2"><a href="index.php" class="nav-link p-0 text-muted">Home</a></li>
             <li class="nav-item mb-2"><a href="about.php" class="nav-link p-0 text-muted">About us</a></li>
             <li class="nav-item mb-2"><a href="recycling.php" class="nav-link p-0 text-muted">Recycling</a></li>
-            <li class="nav-item mb-2"><a href="market.php" class="nav-link p-0 text-muted">Market</a></li>
+            <!-- <li class="nav-item mb-2"><a href="market.php" class="nav-link p-0 text-muted">Market</a></li> -->
             <li class="nav-item mb-2"><a href="contact.php" class="nav-link p-0 text-muted">Contact us</a></li>
           </ul>
         </div>
 
         <div class="col-4 offset-1">
+          <!-- 
           <form>
             <h5>Subscribe to our newsletter</h5>
             <div class="d-flex w-100 gap-2">
@@ -176,12 +177,13 @@ include('db.php');
               <button class="btn btn-primary" type="button">Subscribe</button>
             </div>
           </form>
+           -->
         </div>
       </div>
 
       <div class="d-flex justify-content-between py-4 my-4 border-top">
-        <p>&copy; 2021 Company, Inc. All rights reserved.</p>
-        <ul class="list-unstyled d-flex">
+        <p>&copy; 2022 K212 group (KTU), Inc. All rights reserved.</p>
+        <!-- <ul class="list-unstyled d-flex"> 
           <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
                 <use xlink:href="#twitter" />
               </svg></a></li>
@@ -192,6 +194,7 @@ include('db.php');
                 <use xlink:href="#facebook" />
               </svg></a></li>
         </ul>
+        -->
       </div>
     </footer>
 
