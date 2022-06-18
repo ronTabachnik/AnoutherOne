@@ -9,13 +9,15 @@ $errors = array();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (empty($_POST['name'])) array_push($errors, 'name is empty');
   if (empty($_POST['contact'])) array_push($errors, 'contact info is empty');
-  $imgsize = getimagesize($_FILES["image"]["tmp_name"]);
-  if ($imgsize === false) {
-    array_push($errors, 'not an image');
+  if ($_FILES["image"]["size"] > 0) {
+    if ($_FILES["image"]["size"] > MAX_SIZE) {
+      array_push($errors, 'image too big');
+    }
+    $imgsize = getimagesize($_FILES["image"]["tmp_name"]);
+    if ($imgsize === false) {
+      array_push($errors, 'not an image');
+    }
   }
-  //  else if ($imgsize > MAX_SIZE) {
-  //   array_push($errors, 'image too big');
-  // }
 
   if (count($errors) == 0) {
     $stmt = $db->prepare("insert into announcements (user_id, category_id, name, contact, description) values (:user_id, :category_id, :name, :contact, :description)");
@@ -25,15 +27,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bindParam(':contact', $_POST['contact']);
     $stmt->bindParam(':description', $_POST['description']);
     $stmt->execute();
-    $id = $db->lastInsertId();
-    $stmt = $db->prepare("update announcements set image = :image where id=:id");
-    $tmp_file = $_FILES["image"]["tmp_name"];
-    $image_path = "images/".$id.'.'.pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-    rename($tmp_file, $image_path);
-    chmod($image_path, 644);
-    $stmt->bindParam(':image', $image_path);
-    $stmt->bindParam(':id', $id);  
-    $stmt->execute();
+    if ($_FILES["image"]["size"] > 0) {
+      $id = $db->lastInsertId();
+      $stmt = $db->prepare("update announcements set image = :image where id=:id");
+      $tmp_file = $_FILES["image"]["tmp_name"];
+      $image_path = "images/".$id.'.'.pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+      rename($tmp_file, $image_path);
+      chmod($image_path, 644);
+      $stmt->bindParam(':image', $image_path);
+      $stmt->bindParam(':id', $id);  
+      $stmt->execute();
+    }
     header("Location: /market.php");
     exit();
   }
