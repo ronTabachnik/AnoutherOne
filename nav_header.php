@@ -36,11 +36,11 @@
             <a href="signup.php"><button type="button" href="signup.php" class="btn btn-primary">Sign up</button></a>
           </div>
 <? } else { ?>
-            <span style="color:#fff"><?=  $_SESSION['user']['name'] ?></span>
+			<div class="col-md-3 text-end">
+			<span class="me-2 btn-outline-primary" style="color:#fff"><?=  $_SESSION['user']['name'] ?></span>	
             <a href="new_item.php"><button type="button" href="new_item.php" class="btn btn-primary">Add item</button></a>
-          <div class="col-md-3 text-end">
-            <a href="signout.php"><button type="button" href="signout.php" class="btn btn-outline-primary me-2">Sign out</button></a>
-          </div>
+			<a href="signout.php"><button type="button" href="signout.php" class="btn btn-outline-primary me-2">Sign out</button></a>
+		 </div>
 <? } ?>
         </div>
       </div>
