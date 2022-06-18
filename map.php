@@ -87,7 +87,7 @@ function initMap() {
   });
 
 <? foreach ($markers as $marker) { ?>
-  addMarker(map, <?= $marker['latitude'] ?>, <?= $marker['longitude'] ?>, <?= json_encode($marker['title']) ?>, <?= json_encode($marker['info']) ?>, <?= json_encode($marker['icon']) ?>)
+  addMarker(map, <?= $marker['latitude'] ?>, <?= $marker['longitude'] ?>, <?= json_encode($marker['title']) ?>, <?= json_encode(str_replace("\r\n", "<br>", $marker['info'])) ?>, <?= json_encode($marker['icon']) ?>);
 <? } ?>
 
 }
