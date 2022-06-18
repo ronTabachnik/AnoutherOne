@@ -1,4 +1,12 @@
-<!doctype html>
+<?
+include('session.php');
+include('db.php');
+
+$stmt = $db->prepare("select * from map_markers");
+$stmt->execute();
+$markers = $stmt->fetchAll();
+
+?><!doctype html>
 <html lang="en">
 
 <head>
@@ -7,7 +15,7 @@
   <meta name="description" content="This is web app for recycling electronic devices. here you can find ways to recycle and even companies who is interested in your garbage">
   <meta name="author" content="Ron Tabachnik and Farid Kemyakov">
 
-  <title>About us - ER</title>
+  <title>Map - ER</title>
   <link rel="icon" type="image/x-icon" href="styles/images/ProductLogo.ico">
   <link rel="icon" href="styles/images/ProductLogo.png">
 
@@ -41,60 +49,46 @@
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   <script>
-//   // Initialize and add the map
-// function initMap() {
-//   // The location of Uluru
-//   const uluru = { lat: 54.8966524, lng: 23.9211619 };
-//   // The map, centered at Uluru
-//   const map = new google.maps.Map(document.getElementById("map"), {
-//     zoom: 11,
-//     center: uluru,
-//   });
-//   // The marker, positioned at Uluru
-//   const marker = new google.maps.Marker({
-//     position: uluru,
-//     map: map,
-//   });
-// }
+var activeInfoWindow;
+
+function addMarker(map, lat, lng, title, infoContent, icon) {
+  var infowindow = new google.maps.InfoWindow({
+    content: infoContent,
+  });
+
+  var marker = new google.maps.Marker({
+    position: { lat: lat, lng: lng },
+    map,
+    title: title,
+    icon: icon,
+  });
+
+  marker.addListener("click", (e) => {
+    if (activeInfoWindow) activeInfoWindow.close();
+    activeInfoWindow = infowindow;
+    infowindow.open({
+      anchor: marker,
+      map,
+      shouldFocus: false,
+    });
+  });
+}
 
 function initMap() {
-    const uluru = { lat: 54.8966524, lng: 23.9211619 };
+  const mapElem = document.getElementById("map");
 
-    const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 8,
-    center: uluru,
+  const map = new google.maps.Map(mapElem, {
+    zoom: 10,
+    center: { lat: 54.8966524, lng: 23.9211619 }, // Kaunas city
   });
 
-  new google.maps.Marker({
-    position: uluru,
-    map,
-    title: "Hello World!",
+  map.addListener("click", () => {
+    if (activeInfoWindow) activeInfoWindow.close();
   });
 
-  const image =
-    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
-  const beachMarker = new google.maps.Marker({
-    position: { lat: 54.89208, lng: 23.30478 },
-    map,
-    title: "Hawfasfawfafw!",
-    icon: image,
-  });
-
-  const svgMarker = {
-    path: "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
-    fillColor: "blue",
-    fillOpacity: 0.6,
-    strokeWeight: 0,
-    rotation: 0,
-    scale: 2,
-    anchor: new google.maps.Point(15, 30),
-  };
-  const beachMarker2 = new google.maps.Marker({
-    position: { lat: 55.38503, lng: 23.87607 },
-    map,
-    title: "sdge4rferwe!",
-    icon: svgMarker,
-  });
+<? foreach ($markers as $marker) { ?>
+  addMarker(map, <?= $marker['latitude'] ?>, <?= $marker['longitude'] ?>, <?= json_encode($marker['title']) ?>, <?= json_encode($marker['info']) ?>, <?= json_encode($marker['icon']) ?>)
+<? } ?>
 
 }
 window.initMap = initMap;
@@ -111,23 +105,6 @@ window.initMap = initMap;
 </body>
 
 <? include('nav_header.php'); ?>
-
-  <main>
-     
-<!-- <iframe
-  width="600"
-  height="450"
-  style="border:0"
-  loading="lazy"
-  allowfullscreen
-  referrerpolicy="no-referrer-when-downgrade"
-  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBGmlcD2N92i0BWslCIsic7E52arJ3ZuD8
-    &q=Kaunas">
-</iframe> -->
-
-
-  </main>
-
 
   <div class="b-example-divider"></div>
   <div class="container">

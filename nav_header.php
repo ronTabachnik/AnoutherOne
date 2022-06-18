@@ -24,6 +24,9 @@
               <a class="nav-link" aria-current="page" href="market.php">Market</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="map.php">Map</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" aria-current="page" href="contact.php">Contact us</a>
             </li>
           </ul>
