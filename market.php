@@ -112,8 +112,11 @@ $categories = $stmt->fetchAll();
 
               <div class="card-body">
                 <p class="card-text"><b><?= $item['name'] ?></b></p>
-                
+                <? if (!empty($_SESSION['user'])) { ?>
                 <p class="card-text">contact info: <?= $item['contact'] ?></p>
+                <? } else { ?>
+                <p class="card-text">log in to view contact info</p>
+                <? } ?>
                 <p class="card-text"><?= $item['description'] ?></p>
               </div>
             </div>
