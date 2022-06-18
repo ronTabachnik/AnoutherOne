@@ -6,8 +6,9 @@ $filter = false;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['filter'])) {
   $stmt = $db->prepare("select * from announcements where name like :filter or description like :filter order by name");
-  $shit = '%'.$_POST['filter'].'%';
-  $stmt->bindParam(':filter', $shit);
+  $filter = $_POST['filter'];
+  $param = '%'.$filter.'%';
+  $stmt->bindParam(':filter', $param);
 } else {
   $stmt = $db->prepare("select * from announcements order by name");
 }
@@ -67,7 +68,10 @@ $items = $stmt->fetchAll();
     </section>
 
     <form method="POST">
-      Search: <input type="text" name="filter"> <button type="submit">Search</button>
+      Search: <input type="text" name="filter" value="<?= $filter ?>"> <button type="submit">Search</button>
+      <? if ($filter) { ?>
+      <a href="market.php">clear</a>
+      <? } ?>
     </form>
 
     <div class="album py-5 bg-light">
