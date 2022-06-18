@@ -118,7 +118,7 @@ $items = $stmt->fetchAll();
       </div>
 
       <div class="d-flex justify-content-between py-4 my-4 border-top">
-        <p>&copy; 2022 K212 group (KTU), Inc. All rights reserved</p>
+      <p>&copy; 2022 K212 group (KTU), Inc. All rights reserved</p>
         <!-- <ul class="list-unstyled d-flex">
           <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
                 <use xlink:href="#twitter" />
@@ -134,7 +134,7 @@ $items = $stmt->fetchAll();
     </footer>
 
 
-    <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
 
 
 </body>

@@ -139,9 +139,9 @@ include('db.php');
           <div class="p-4">
             <h4 class="fst-italic">Reach us</h4>
             <ol class="list-unstyled">
-              <li><a href="https://github.com/ronTabachnik/AnoutherOne">GitHub</a></li>
-              <!-- <li><a href="#">KTU</a></li> -->
-              <!-- <li><a href="#">Facebook</a></li> -->
+            <li><a href="https://github.com/ronTabachnik/AnoutherOne">GitHub</a></li>
+            <!-- <li><a href="#">KTU</a></li> -->
+            <!-- <li><a href="#">Facebook</a></li> -->
             </ol>
           </div>
         </div>
@@ -162,13 +162,14 @@ include('db.php');
             <li class="nav-item mb-2"><a href="index.php" class="nav-link p-0 text-muted">Home</a></li>
             <li class="nav-item mb-2"><a href="about.php" class="nav-link p-0 text-muted">About us</a></li>
             <li class="nav-item mb-2"><a href="recycling.php" class="nav-link p-0 text-muted">Recycling</a></li>
-            <!-- <li class="nav-item mb-2"><a href="market.php" class="nav-link p-0 text-muted">Market</a></li> -->
+            <li class="nav-item mb-2"><a href="market.php" class="nav-link p-0 text-muted">Market</a></li>
+            <li class="nav-item mb-2"><a href="map.php" class="nav-link p-0 text-muted">Map</a></li>
             <li class="nav-item mb-2"><a href="contact.php" class="nav-link p-0 text-muted">Contact us</a></li>
           </ul>
         </div>
 
         <div class="col-4 offset-1">
-          <!-- 
+           <!-- 
           <form>
             <h5>Subscribe to our newsletter</h5>
             <div class="d-flex w-100 gap-2">
@@ -177,13 +178,13 @@ include('db.php');
               <button class="btn btn-primary" type="button">Subscribe</button>
             </div>
           </form>
-           -->
+          -->
         </div>
       </div>
 
       <div class="d-flex justify-content-between py-4 my-4 border-top">
-        <p>&copy; 2022 K212 group (KTU), Inc. All rights reserved.</p>
-        <!-- <ul class="list-unstyled d-flex"> 
+      <p>&copy; 2022 K212 group (KTU), Inc. All rights reserved.</p>
+        <!-- <ul class="list-unstyled d-flex">
           <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
                 <use xlink:href="#twitter" />
               </svg></a></li>
