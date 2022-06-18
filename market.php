@@ -2,18 +2,34 @@
 include('session.php');
 include('db.php');
 
-$filter = false;
+$category_filter = "";
+if (!empty($_GET['category'])) $category_filter = $_GET['category'];
+$filter = "";
+if (!empty($_GET['filter'])) $filter = $_GET['filter'];
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['filter'])) {
-  $stmt = $db->prepare("select * from announcements where name like :filter or description like :filter order by name");
-  $filter = $_POST['filter'];
+if ($filter) {
+  if ($category_filter) {
+    $stmt = $db->prepare("select * from announcements where category_id = :category and (name like :filter or description like :filter) order by name");
+    $stmt->bindParam(':category', $category_filter);
+  } else {
+    $stmt = $db->prepare("select * from announcements where name like :filter or description like :filter order by name");
+  }
   $param = '%'.$filter.'%';
   $stmt->bindParam(':filter', $param);
 } else {
-  $stmt = $db->prepare("select * from announcements order by name");
+  if ($category_filter) {
+    $stmt = $db->prepare("select * from announcements where category_id = :category order by name");
+    $stmt->bindParam(':category', $category_filter);
+  } else {
+    $stmt = $db->prepare("select * from announcements order by name");
+  }
 }
 $stmt->execute();
 $items = $stmt->fetchAll();
+
+$stmt = $db->prepare("select * from categories");
+$stmt->execute();
+$categories = $stmt->fetchAll();
 
 ?><!doctype html>
 <html lang="en">
@@ -67,10 +83,17 @@ $items = $stmt->fetchAll();
       </div>
     </section>
 
-    <form method="POST">
-      Search: <input type="text" name="filter" value="<?= $filter ?>"> <button type="submit">Search</button>
+    <form method="GET">
+      Search: <input type="text" name="filter" value="<?= $filter ?>">
+      <input type="hidden" name="category" value="<?= $category_filter ?>">
+      <button type="submit">Search</button>
       <? if ($filter) { ?>
-      <a href="market.php">clear</a>
+      <a href="market.php?category=<?= $category_filter ?>">clear</a>
+      <? } ?>
+      <br>
+      <a href="market.php?category=&filter=<?= urlencode($filter) ?>">all</a>
+      <? foreach ($categories as $category) { ?>
+        <a href="market.php?category=<?= $category['id']?>&filter=<?= urlencode($filter) ?>"><?= $category['name'] ?></a>
       <? } ?>
     </form>
 
