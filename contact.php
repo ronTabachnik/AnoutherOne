@@ -65,7 +65,7 @@ include('session.php');
     </form>
   </main>
 
-
+  <? include("nav_footer.php") ?>
 
 </body>
 

@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   </main>
 
 
-
+  <? include("nav_footer.php") ?>
 
 </body>
 

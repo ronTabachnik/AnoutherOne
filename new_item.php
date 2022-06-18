@@ -119,7 +119,7 @@ $categories = $stmt->fetchAll();
     <div class="error"><?= join('<br>', $errors) ?></div>
   </main>
 
-
+  <? include("nav_footer.php") ?>
 
 </body>
 
