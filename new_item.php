@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $db->lastInsertId();
     $stmt = $db->prepare("update announcements set image = :image where id=:id");
     $tmp_file = $_FILES["image"]["tmp_name"];
-    $image_path = "images/".$id;
+    $image_path = "images/".$id.'.'.pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
     rename($tmp_file, $image_path);
     $stmt->bindParam(':image', $image_path);
     $stmt->bindParam(':id', $id);  
