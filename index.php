@@ -62,22 +62,23 @@ include('db.php');
             <a href="recycling.php" class="stretched-link">Read more...</a>
           </div>
           <div class="col-auto d-none d-lg-block">
-            <img width="200" height="250 "src="https://cdn.pixabay.com/photo/2021/11/27/11/55/business-6827797_1280.png" alt="">
+            <img width="100%" height="100%" src="https://cdn.pixabay.com/photo/2021/11/27/11/55/business-6827797_1280.png" alt="">
           </div>
+
         </div>
       </div>
       <div class="col-md-6">
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-success">Electronic waste disposal</strong>
+          <div class="col-auto d-none d-lg-block">
+          <img width="100%" height="100%" src="styles/images/Ewaste.png" alt="">
+          </div>
+          <strong class="d-inline-block mb-2 text-success">Electronic waste disposal</strong>
             <h3 class="mb-0">What is E-waste</h3>
             <p class="mb-auto">When the word “recycling” gets mentioned, people often think of soda cans, water bottles, cardboard boxes, or newspapers – common household items..</p>
             <a href="recycling.php" class="stretched-link">Read more..</a>
           </div>
-          <div class="col-auto d-none d-lg-block">
-          <img width="200" height="250" src="styles/images/Ewaste.png" alt="">
 
-          </div>
         </div>
       </div>
     </div>
