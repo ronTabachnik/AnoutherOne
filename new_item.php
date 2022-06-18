@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $tmp_file = $_FILES["image"]["tmp_name"];
     $image_path = "images/".$id.'.'.pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
     rename($tmp_file, $image_path);
+    chmod($image_path, 644);
     $stmt->bindParam(':image', $image_path);
     $stmt->bindParam(':id', $id);  
     $stmt->execute();
