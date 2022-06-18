@@ -61,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body class="text-center">
+<? include('nav_header.php'); ?>
 
   <main class="form-signin">
     <form method="POST">

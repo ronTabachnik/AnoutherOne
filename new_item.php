@@ -78,6 +78,7 @@ $categories = $stmt->fetchAll();
 </head>
 
 <body class="text-center">
+<? include('nav_header.php'); ?>
 
   <main class="form-signin">
     <form method="POST" enctype="multipart/form-data">

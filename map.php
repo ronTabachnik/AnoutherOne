@@ -97,14 +97,13 @@ window.initMap = initMap;
 </head>
 
 <body>
+<? include('nav_header.php'); ?>
+
 <div id="map"></div>
 <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGmlcD2N92i0BWslCIsic7E52arJ3ZuD8&callback=initMap&v=weekly"
       defer
-    ></script>
-</body>
-
-<? include('nav_header.php'); ?>
+ ></script>
 
   <div class="b-example-divider"></div>
   <div class="container">

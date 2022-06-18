@@ -1,4 +1,6 @@
-<!doctype html>
+<?
+include('session.php');
+?><!doctype html>
 <html lang="en">
 
 <head>
@@ -33,6 +35,7 @@
 </head>
 
 <body class="text-center">
+<? include('nav_header.php'); ?>
 
   <main class="form-signin">
     <form action="index.php">

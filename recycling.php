@@ -1,4 +1,6 @@
-<!doctype html>
+<?
+include('session.php');
+?><!doctype html>
 <html lang="en">
 
 <head>
