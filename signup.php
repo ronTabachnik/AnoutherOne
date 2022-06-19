@@ -81,21 +81,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <label for="floatingInput">Email address</label>
       </div>
       <div class="form-floating">
-        <input name="name" type="text" class="form-control" id="floatingName">
-        <label for="floatingName">Name</label>
+        <input name="name" type="name" class="form-control" id="floatingInput" placeholder="Vardas">
+        <label for="floatingInput">Name</label>
       </div>
       <div class="form-floating">
         <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
         <label for="floatingPassword">Password</label>
       </div>
 
-      <div class="checkbox mb-3">
-        <label>
-          <a href="signin.php">need to signin?</a>
-          <br>
-          <a href="index.php">back to homepage</a>
-        </label>
-      </div>
+      
 
       <div class="error"><?= join('<br>', $errors) ?></div>
 

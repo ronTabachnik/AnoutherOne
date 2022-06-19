@@ -118,7 +118,7 @@ $categories = $stmt->fetchAll();
       <br>
       <button class="w-100 btn btn-lg btn-primary" type="submit">Create</button>
       <br>
-      <a href="index.php">Homepage</a>
+
     </form>
     <div class="error"><?= join('<br>', $errors) ?></div>
   </main>

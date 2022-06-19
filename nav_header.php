@@ -1,3 +1,9 @@
+<?php 
+function has_prefix($string, $prefix) {
+  return substr($string, 0, strlen($prefix)) == $prefix;
+}
+?>
+
 <header>
     <!-- Fixed navbar -->
 
@@ -12,22 +18,22 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+              <a class="nav-link<?= has_prefix($_SERVER['REQUEST_URI'], '/index.php') ? ' active' : '' ?>" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.php">About us</a>
+              <a class="nav-link<?= has_prefix($_SERVER['REQUEST_URI'], '/about.php') ? ' active' : '' ?>" aria-current="page" href="about.php">About us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="recycling.php">Recycling</a>
+              <a class="nav-link<?= has_prefix($_SERVER['REQUEST_URI'], '/recycling.php') ? ' active' : '' ?>" aria-current="page" href="recycling.php">Recycling</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="market.php">Market</a>
+              <a class="nav-link<?= has_prefix($_SERVER['REQUEST_URI'], '/market.php') ? ' active' : '' ?>" aria-current="page" href="market.php">Market</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="map.php">Map</a>
+              <a class="nav-link<?= has_prefix($_SERVER['REQUEST_URI'], '/map.php') ? ' active' : '' ?>" aria-current="page" href="map.php">Map</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="contact.php">Contact us</a>
+              <a class="nav-link<?= has_prefix($_SERVER['REQUEST_URI'], '/contact.php') ? ' active' : '' ?>" aria-current="page" href="contact.php">Contact us</a>
             </li>
           </ul>
 <? if(empty( $_SESSION['user'])) { ?>
